@@ -15,7 +15,8 @@
 
     ?>
     <img id="blog" src="img/blog.png">  
-        <div id="largeclass">    
+           
+            <div id="dyklasa"> 
                 <div id="klasa1">
                     <div class="card">
                         <img id="mid" src="img/midweek.png">
@@ -30,7 +31,9 @@
                     <img id="mid2" src="img/midweekk.png" alt="midweek">
                     <p>Our book-loving staff hand-pick current or relevant titles every week, to recommend them to you.
                          So, clear your shelves and add these to your next book haul. <b>#happyreading.</b></p>
-
+                </div>
+            </div>
+            <div id="bloglibrat">
                          <div class="divlibrat">
                              <img class="fotolibrat" src="img/passenger.png" alt="">
                              <div class="shkrimii">
@@ -78,8 +81,8 @@
                             </div>
                         </div>
                 </div>
-                
-        </div>
+            </div>  
+        
         
         <?php
             include 'inc/footer.php';

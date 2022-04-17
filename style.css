@@ -5,6 +5,7 @@
  body{
      margin: 0;
      font-family: 'Baloo 2', cursive;
+     overflow-x:hidden;
  }
  /* HEADER */
  header{
@@ -60,6 +61,7 @@
     margin-top: 20px;
     box-shadow: 5px black;
 }
+
 
 
 
@@ -273,11 +275,21 @@ h4{
     width: 100%;
    
 }
+
+.cardd{
+    margin: 30px 10px;
+}
+
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
 
 #largeclass{
+    display: flex;
+    justify-content: space-between;
+   
+}
+#dyklasa{
     display: flex;
     justify-content: space-between;
 }
@@ -295,10 +307,18 @@ h4{
 }
 .divlibrat{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 70px;
     align-items: center;
 
+}
+#bloglibrat{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 50px;
+    margin-right: 50px;
+    
 }
 .shkrimii{
     padding-left: 30px;
@@ -369,12 +389,16 @@ h4{
         margin-top: -208.5px; /* HALF OF THE HEIGHT */
         margin-left: -375px; /* HALF OF THE WIDTH */
     }
+
+  
+
   }
 
   /*ABOUTUS */
   #aboutusdiv{
       display: flex;
       justify-content: flex-start;
+      flex-wrap:nowrap;
 
   }
   #inspiration{
@@ -646,7 +670,104 @@ h4{
   }
 
   /* slideri*/
+  .sliderdiv{
+    width: 100vw;
+    height: 27vw;
+}
 
+.slidermain{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider{
+    height: 100%;
+    width: 400%;
+    display: flex;
+    transition: all 0.7s ease;
+    overflow: hidden;
+}
+
+.slider div{
+    position: relative;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sliderfoto{
+    position: absolute;
+    width: 100%;
+}
+
+.watchnow{
+    position: absolute;
+    width: 200px;
+    height: 32px;
+    padding: 0px 40px;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    color: #26262d;
+    border-radius: 3px;
+    transition: 0.5s ease;
+
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -95%);
+}
+.moviedesc{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 5%;
+    color: white;
+}
+
+.moviegenre{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+    top: 50%;
+    transform: translate(0%, -50%);
+  }
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* edit form */
+
+.editform{
+    border: solid 1px;
+   
+    
+}
+
+.edit-table{
+    display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+}
   
 
 
