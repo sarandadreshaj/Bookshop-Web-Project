@@ -1,7 +1,3 @@
-<?php 
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,8 +44,9 @@ include 'inc/header.php';
             <p><a class="loginlink" href="login.php">Log in!</a></p>
         </form>
 
-        <?php include_once 'registercontroller.php';
-            ?>
+        <?php
+             include_once 'registercontroller.php';
+        ?>
     </div>
 </div>
    

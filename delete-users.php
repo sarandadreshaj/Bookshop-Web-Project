@@ -1,9 +1,25 @@
 <?php 
+session_start();
+$userId = $_GET['id'];
     require_once 'userRepository.php';
+    
+$userRepository = new UserRepository();
 
-    if(isset($_GET['id'])){
-        $userId = $_GET['id'];
-    }
-    $users = new userRepository;
-    $users->deleteUser($userId);
+$user = $userRepository->getUserById($userId);
+
+$userRepository->deleteUser($userId);
+
+header("location:userdashboard.php");
+
+include_once 'menuActivites.php';
+
+$userChanging = $_SESSION['username'];
+
+$deletedUser = $user['username'];
+
+$activity = "Deleted user";
+
+$auditLogRepository = new MenuActivities();
+
+$auditLogRepository->activities($userChanging,$activity,$deletedUser);
 ?>

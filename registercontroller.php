@@ -14,19 +14,20 @@ if(isset($_POST['submit'])){
     
 
     else{   
-        $name = $_POST['name'];
         $id = rand(0,100);
+        $role = 'user';
+        $name = $_POST['name'];
         $surname = $_POST['surname'];
         $email = $_POST['email'];
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $role = 'user';
+        
     
         
    
 
 
-        $user = new User($id, $name,$surname,$email,$username,$password,$role);
+        $user = new User($id,$role, $name,$surname,$email,$username,$password);
             $userRepository = new UserRepository();
 
 

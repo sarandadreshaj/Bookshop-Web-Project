@@ -1,10 +1,6 @@
-<?php
-  include_once 'userRepository.php';
-?>
+
+
 <style>
-*{
-  font-family: sans-serif; 
-}
 
 .content-table {
   border-collapse: collapse;
@@ -78,10 +74,29 @@ border-radius: 4px;
   color: white;
 }
 </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="style.css" type="text/css" rel="stylesheet"> 
+  <script src="https://kit.fontawesome.com/4480201544.js" crossorigin="anonymous"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<?php
+include 'inc/header.php';
+include_once 'userRepository.php';
+include_once 'log.php';
+?>
 <div>
     <table class="content-table">
         <thead>
             <tr>
+              <th>ID</th>
+              <th>Role</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
@@ -95,8 +110,11 @@ border-radius: 4px;
             <?php
                 $u = new userRepository;
                 $allUsers = $u->getAllUsers();
-                foreach($allUsers as $users):?>
+                foreach($allUsers as $users):
+            ?>
             <tr>
+                <td><?php echo $users['id'] ?></td>
+                <td><?php echo $users['role'] ?></td>
                 <td><?php echo $users['name'] ?></td>
                 <td><?php echo $users['surname'] ?></td>
                 <td><?php echo $users['email']?></td>
@@ -108,4 +126,36 @@ border-radius: 4px;
             <?php endforeach; ?>
         </tbody>
     </table>
+
 </div>
+
+<div>
+    <table class="content-table">
+        <thead>
+            <tr>
+              <th>Current page URL</th>
+              <th>Referr URL</th>
+              <th>IP address</th>
+              <th>User Agent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?php echo $currentURL; ?></td>
+                <td><?php echo $referrer_url; ?></td>
+                <td><?php echo $user_ip_address;?></td>
+                <td><?php echo $user_agent; ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<?php
+        include 'inc/footer.php';
+    ?>
+    <script src="script.js"></script>
+    <script src="slider.js"></script>
+
+
+</body>
+</html>

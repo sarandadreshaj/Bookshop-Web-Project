@@ -1,5 +1,6 @@
 <?php
-require_once 'MenuControllers.php';
+require_once '../controllers/MenuControllers.php';
+
 $menu = new MenuController;
 if(isset($_POST['submit'])){
     $menu->insert($_POST);
@@ -15,7 +16,7 @@ if(isset($_POST['submit'])){
         Title:
         <input type="text" name="title">
         <br>
-        Category:
+        Category
         <input type="text" name="category">
         <br>
         Price:
@@ -24,4 +25,3 @@ if(isset($_POST['submit'])){
         <input type="submit" name="submit" value="Save">
     </form>
 </div>
-

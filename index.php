@@ -1,5 +1,7 @@
+
 <?php
   require_once 'menuControllers.php';
+  include_once 'log.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,12 +24,6 @@
       include 'inc/slider.php';
     ?>
     <div style="margin-bottom: 20px;"></div>
-
-  
-    <button><a href="views/menuDashboard.php">Menu Dashboard</a></button>
-    <button><a href="views/userDashboard.php">User Dashboard</a></button><br><br>
-   
-    <a href="logout.php">Log out</a>
 
     <p1 class="minititujt">New and Networthy</p1>
 

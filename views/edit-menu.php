@@ -1,35 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="../style.css" type="text/css" rel="stylesheet"> 
-    <link href="style.css" type="text/css" rel="stylesheet"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-<body>
 <?php
-include_once 'inc/header.php';
-require_once 'MenuControllers.php';
+require_once '../controllers/MenuControllers.php';
 if(isset($_GET['id'])){
     $menuId = $_GET['id'];
 }
 $menu = new MenuController;
 $currenMenu = $menu->edit($menuId);
-
-include_once 'menuActivites.php';
-
-$title = $currenMenu['menu_title'];
-    
-
-$username = $_SESSION['username'];
-$activity = "Edited product";
-
-$activities = new MenuActivities();
-
-$activities->activities($username,$activity,$title);
 
 if(isset($_POST['submit'])){
     $menu->update($_POST, $menuId);
@@ -48,7 +23,7 @@ if(isset($_POST['submit'])){
 </style>
 
 <div align="center" class="edit-table">
-<form class="editform" method="post" >
+<form method="post" >
     Image:
     <input type="file" name="image" value="<?php echo $currenMenu['menu_image']; ?>">
     <br>
@@ -65,5 +40,3 @@ if(isset($_POST['submit'])){
 
 </form>
 </div>
-</body>
-</html>

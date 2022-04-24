@@ -22,24 +22,25 @@ class UserRepository
         $conn = $this->connection;
 
         $id = $user->getId();
+        $role = $user->getRole();
         $name = $user->getName();
         $surname = $user->getSurname();
         $email = $user->getEmail();
         $username = $user->getUsername();
         $password = $user->getPassword();
-        $role = $user->getRole();
 
 
 
-        $sql = "INSERT INTO user (id,name,surname,email,username,password,role) VALUES (?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO user (id,role, name,surname,email,username,password) VALUES (?,?,?,?,?,?,?)";
 
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$id, $name, $surname, $email, $username, $password, $role]);
+        $statement->execute([$id,$role, $name, $surname, $email, $username, $password]);
 
 
         echo "<script>alert('User inserted succesfully')</script>";
     }
+
 
 
     function getAllUsers()
@@ -61,7 +62,7 @@ class UserRepository
 
         $conn = $this->connection;
 
-        $sql = "SELECT * from users WHERE id = '$id'";
+        $sql = "SELECT * from user WHERE id = '$id'";
 
 
         $statement = $conn->query($sql);
@@ -110,17 +111,17 @@ class UserRepository
 
     }
 
-    function updateUser($id, $name, $surname, $email, $username, $password, $role)
+    function updateUser($id, $role, $name, $surname, $email, $username, $password)
     {
 
         $conn = $this->connection;
 
 
-        $sql = "UPDATE user SET name=?, surname=?, email=?, username=?, password=?, role=? WHERE id=?";
+        $sql = 'UPDATE user SET role=?, password=?, name=?, surname=?, email=?, username=?  WHERE id=?';
 
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$name, $surname, $email, $username, $password, $role, $id]);
+        $statement->execute([$id, $role, $name, $surname, $email, $username, $password]);
 
         echo "<script>alert('Update was successful')</script>";
     }

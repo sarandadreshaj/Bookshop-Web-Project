@@ -1,6 +1,10 @@
-
+<?php
+require_once '../controllers/menuControllers.php';
+?>
 <style>
-
+*{
+  font-family: sans-serif; 
+}
 
 .content-table {
   border-collapse: collapse;
@@ -10,18 +14,6 @@
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-#button{
-  background-color: #23908c; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  margin-top: 25px;
-  margin-left: 25px;
-}
-#ahref{
-  color: white;
-  text-decoration: none;
 }
 
 .content-table thead tr {
@@ -86,24 +78,6 @@ border-radius: 4px;
   color: white;
 }
 </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="style.css" type="text/css" rel="stylesheet"> 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet"> 
-  <script src="https://kit.fontawesome.com/4480201544.js" crossorigin="anonymous"></script>
-  <title>Document</title>
-</head>
-<body>
-<?php
-include_once 'inc/header.php';
-require_once 'menuControllers.php';
-
-?>
-<button id="button"><a id="ahref" href="create-menu.php">Push an item!</a></button>
 <div>
     <table class="content-table">
         <thead>
@@ -133,12 +107,3 @@ require_once 'menuControllers.php';
         </tbody>
     </table>
 </div>
-
-
-<?php
-        include 'inc/footer.php';
-    ?>
-    <script src="script.js"></script>
-    <script src="slider.js"></script>
-</body>
-</html>

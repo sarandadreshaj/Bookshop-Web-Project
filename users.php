@@ -1,23 +1,26 @@
 <?php
 
 class User{
+    private $id;
+    private $role;
     private $name;
     private $surname;
     private $email;
     private $username;
     private $password;
-    private $role;
-    private $id;
+    
+    
 
 
-    function __construct($id, $name,$surname,$email,$username,$password,$role){
+    function __construct($id,$role, $name,$surname,$email,$username,$password){
+            $this->id=$id;
+            $this->role = $role;
             $this->name = $name;
             $this->surname = $surname;
             $this->email = $email;
             $this->username = $username;
             $this->password = $password;
-            $this->role = $role;
-            $this->id=$id;
+            
     }
 
 

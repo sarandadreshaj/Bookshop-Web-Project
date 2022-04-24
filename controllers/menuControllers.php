@@ -1,12 +1,12 @@
 <?php
 
-require_once 'database.php';
+require_once '../config/database.php';
 
 class MenuController{
-    public $db; //per me u lidhe me database, per te ju casur
+    public $db; //per me u lidhe me database
 
     public function __construct(){
-        $this->db = new Database;//sa here qe thirresh si instance, thirre $db 
+        $this->db = new Database;
     }
     //crud
 
@@ -17,7 +17,7 @@ class MenuController{
     }
 
     public function insert($request){
-        $request['image'] = './img/'.$request['image'];
+        $request['image'] = './img/' .$request['image'];
         $query = $this->db->pdo->prepare('INSERT INTO menu (menu_image, menu_title, menu_category, menu_price)
         VALUES (:menu_image, :menu_title, :menu_category, :menu_price)');
 
@@ -31,14 +31,6 @@ class MenuController{
         return header('Location: menuDashboard.php');
 
     }
-
-    public function insertMessage($request){
-        $query = $this->db->pdo->prepare('INSERT INTO contact (email, message) VALUES (:email, :message)');
-        $query->bindParam(':email', $request['email']);
-        $query->bindParam(':message', $request['message']);
-        $query->execute();
-        return header('Location: index.php');
-    }
     public function edit($id){
         $query = $this->db->pdo->prepare('SELECT * FROM menu WHERE id = :id');
         $query->bindParam(':id', $id);
@@ -50,7 +42,6 @@ class MenuController{
     public function update($request, $id){
         $query = $this->db->pdo->prepare('UPDATE menu SET menu_image = :menu_image,
         menu_title = :menu_title, menu_category = :menu_category, menu_price= :menu_price WHERE id = :id');
-        $request['image'] = './img/'.$request['image'];
         $query->bindParam(':menu_image', $request['image']);
         $query->bindParam(':menu_title', $request['title']);
         $query->bindParam(':menu_category', $request['category']);

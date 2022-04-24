@@ -1,7 +1,5 @@
 
 <style>
-
-
 .content-table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -100,34 +98,31 @@ border-radius: 4px;
 <body>
 <?php
 include_once 'inc/header.php';
-require_once 'menuControllers.php';
+require_once 'menuActivites.php';
 
 ?>
-<button id="button"><a id="ahref" href="create-menu.php">Push an item!</a></button>
+
 <div>
     <table class="content-table">
         <thead>
             <tr>
-              <th>Menu image</th>
-              <th>Menu title</th>
-              <th>Menu category</th>
-              <th>Menu price</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>User</th>
+              <th>Activity Type</th>
+              <th>Changed item</th>
+              <th>Time</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $m = new MenuController;
-                $allMenu = $m->readData();
+                $a = new MenuActivities;
+                $allMenu = $a->readData();
                 foreach($allMenu as $menu):?>
             <tr>
-                <td><?php echo $menu['menu_image'] ?></td>
-                <td><?php echo $menu['menu_title'] ?></td>
-                <td><?php echo $menu['menu_category']?></td>
-                <td><?php echo $menu['menu_price'] ?></td>
-                <td><button class="bttn"><a href="edit-menu.php?id=<?php echo $menu['id']; ?>" class="ahreff">Edit</a></button></td>
-                <td><button class="bttn2"><a href="delete-menu.php?id=<?php echo $menu['id'] ?>" class="ahreff">Delete</a></button></td>
+                <td><?php echo $menu['user'] ?></td>
+                <td><?php echo $menu['activityType'] ?></td>
+                <td><?php echo $menu['changedItem']?></td>
+                <td><?php echo $menu['time'] ?></td>
+            
             </tr>
             <?php endforeach; ?>
         </tbody>
